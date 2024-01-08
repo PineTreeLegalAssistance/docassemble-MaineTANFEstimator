@@ -1,0 +1,11 @@
+---
+initial: True
+code: |
+  as_of_date = "Effective as of January 1, 2024"
+  calcDate = today()
+  
+  # Parameters needing (semi)annual updates
+  arrStdOfNeedAdultInc = [379, 597, 800, 1006, 1209, 1414, 1619, 1824, 204]
+  arrStdOfNeedChildOnly = [224, 429, 634, 837, 1043, 1247, 1452, 1656, 204]
+  arrMaxTANFGrantAdultInc = [315, 497, 665, 837, 1004, 1174, 1345, 1515, 169]
+  arrMaxTANFGrantChildOnly = [188, 359, 529, 696, 868, 1036, 1207, 1376, 169] 

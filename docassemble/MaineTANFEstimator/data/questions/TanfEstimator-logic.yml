@@ -1,0 +1,96 @@
+---
+#Where we will set up logic and print-outs page for TANF Estimator
+---
+metadata:
+  title: |
+    Maine TANF Benefits Estimator
+  short title: |
+    ME TANF Estimator
+  description: |
+    The Maine TANF Benefits Estimator is built to be used by people familiar with the basic TANF rules to estimate the monthly TANF benefit amount a household may receive in Maine. This tool is partially built upon the work of Mass Legal Services and their MA SNAP Calculator 
+  #exit url: https://www.masslegalservices.org/content/online-snap-calculator
+  show login: False
+---
+include: 
+  - docassemble.AssemblyLine:assembly_line.yml
+  - ptla_custom_organization.yml
+---
+features:
+  question back button: True
+  navigation back button: False
+  # theme file downloaded from: bootstrap theme: https://bootswatch.com/cerulean/bootstrap.min.css
+  #css: 
+    #- colors.css
+    #- bootstrap.min.css
+  #hide navbar: True 
+  debug: False
+---
+modules:
+  - docassemble.base.core
+---
+include:
+  - TanfEstimator-parameters.yml
+  - TanfEstimator-questions.yml
+  - TanfEstimator-calculation.yml
+---
+mandatory: true
+code: |
+  #Question screen
+  HHSize
+  
+  #Print option screen
+  print_options
+  
+  #Final screen
+  if print_options['Summary'] == True or print_options['Details'] == True or print_options['Inputs'] == True:
+    downloadMe    
+  else:    
+    textOnly              
+
+---
+id: chose-no-download
+event: textOnly
+question: |
+  You have successfully completed the calculation. 
+subquestion: |  
+  You can user the "Back" button to revise your input, or restart a new interview. 
+buttons: 
+  - Exit: exit
+  - Restart: restart
+---
+id: chose-download
+event: downloadMe 
+question: |
+  You have successfully completed the calculation.<br /></br />
+  Download your results below.
+attachment:
+  name: TANF Results 
+  filename: TANF-Estimator-Results
+  valid formats:
+      - pdf
+  docx template file: 
+    code: |
+      finalFile
+buttons:
+  - Exit: exit
+  - Restart: restart  
+---
+code: |  
+  # Count number of selections
+  totalSelection = 0
+  if print_options['Summary']:
+    totalSelection += 1
+  if print_options['Details']:
+    totalSelection += 1
+  if print_options['Inputs']:
+    totalSelection += 1
+    
+  # define document template file 
+  if totalSelection >1 :
+    finalFile = "tanf-all.docx"
+  elif print_options['Summary']:
+    finalFile= "tanf-summary.docx"
+  elif print_options['Details']:        
+    finalFile = "tanf-details.docx"
+  elif print_options['Inputs']:        
+    finalFile = "tanf-dhhsInputs.docx"
