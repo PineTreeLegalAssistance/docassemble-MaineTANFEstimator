@@ -15,7 +15,10 @@ code: |
   GMEI = round(MEI + WEIC + biWEIC, 0)
   #May need to add some child support related math here - passing over for now
   #2.3 Calculating Countable Earned Income    
-  CMEI = round((GMEI - 108) * .5)
+  if GMEI > 0:
+    CMEI = round((GMEI - 108) * .5)
+  else:
+    CMEI = 0
   #2.4 Calculating Total Income
   TI = round(CMEI + GMUI, 0)
   HHTotal = HHAdults + HHChildren
@@ -36,10 +39,10 @@ code: |
     else:
       SON = arrStdOfNeedAdultInc[7]+((HHTotal-8)*arrStdOfNeedAdultInc[8])
   #2.6 Eligibility Results
-    if TI < SON:
-      SONResult = "PASSED"
-    else:
-      SONResult = "FAILED"
+  if TI < SON:
+    SONResult = "PASSED"
+  else:
+    SONResult = "FAILED"
   # Step 3. Calculating Basic TANF Grant
   #3.1 
   BasicGrant = round(SON - TI, 0)
