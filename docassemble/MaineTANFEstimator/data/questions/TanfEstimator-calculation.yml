@@ -18,18 +18,23 @@ code: |
   CMEI = round((GMEI - 108) * .5)
   #2.4 Calculating Total Income
   TI = round(CMEI + GMUI, 0)
+  HHTotal = HHAdults + HHChildren
   #2.5 Household Size and Standard of Need
   #This may be a mess for a while - will need to test
+  if HHAdults < 1:
+    ChildOnlyHousehold = True
+  else:
+    ChildOnlyHousehold = False
   if ChildOnlyHousehold == True:
     if HHTotal <= 8:
-      SON = arrStdOfNeedChildOnly[HHSize-1]
+      SON = arrStdOfNeedChildOnly[HHTotal-1]
     else:
-      SON = arrStdOfNeedChildOnly[7]+((HHSize-8)*arrStdOfNeedChildOnly[8])
+      SON = arrStdOfNeedChildOnly[7]+((HHTotal-8)*arrStdOfNeedChildOnly[8])
   else:
     if HHTotal <= 8:
-      SON = arrStdOfNeedAdultInc[HHSize-1]
+      SON = arrStdOfNeedAdultInc[HHTotal-1]
     else:
-      SON = arrStdOfNeedAdultInc[7]+((HHSize-8)*arrStdOfNeedAdultInc[8])
+      SON = arrStdOfNeedAdultInc[7]+((HHTotal-8)*arrStdOfNeedAdultInc[8])
   #2.6 Eligibility Results
     if TI < SON:
       SONResult = "PASSED"

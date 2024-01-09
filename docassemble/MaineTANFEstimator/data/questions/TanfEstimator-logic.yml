@@ -36,13 +36,13 @@ include:
 mandatory: true
 code: |
   #Question screen
-  HHSize
+  HHAdults
   
   #Print option screen
   print_options
   
   #Final screen
-  if print_options['Summary'] == True or print_options['Details'] == True or print_options['Inputs'] == True:
+  if print_options['Details'] == True:
     downloadMe    
   else:    
     textOnly              
@@ -77,20 +77,11 @@ buttons:
 ---
 code: |  
   # Count number of selections
-  totalSelection = 0
-  if print_options['Summary']:
-    totalSelection += 1
-  if print_options['Details']:
-    totalSelection += 1
-  if print_options['Inputs']:
-    totalSelection += 1
+  #totalSelection = 0
+  #if print_options['Details']:
+    #totalSelection += 1
+
     
   # define document template file 
-  if totalSelection >1 :
-    finalFile = "tanf-all.docx"
-  elif print_options['Summary']:
-    finalFile= "tanf-summary.docx"
-  elif print_options['Details']:        
+  if print_options['Details']:        
     finalFile = "tanf-details.docx"
-  elif print_options['Inputs']:        
-    finalFile = "tanf-dhhsInputs.docx"

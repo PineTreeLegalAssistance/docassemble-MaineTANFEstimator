@@ -1,1 +1,127 @@
-#Where we will build out the interview questions for the TANF Estimator
+---
+#Where we will build out the interview questions for the TANF Estimator. Pulled q's from SNAP estimator as a start, and have started to customize.
+---
+mandatory: true
+code: |
+  # Set Defaults for internal testing - comment out before release     
+  #ElderlyOrDisabled = "Yes"
+  #isHomeless = "No"
+  #hasDependent = "No"  
+  #Uneared_Income = "Mthly"
+  #Earned_Income = "biWkly"
+  #paysAC = "No"
+  #paysElec = "No"
+  #paysTelephone = "Yes"
+  
+  # Set defaults for 11 currency fields.
+  biWUI = 0  
+  WUI = 0
+  MUI = 0      
+  biWEI = 0
+  WEI = 0
+  MEI = 0
+  CSR = 0  
+  #MedDed = 0
+  #DepCareDed = 0
+  #RentMortgageDed = 0
+  #HomeownerDed = 0
+
+---
+id: Questions
+question: |
+subquestion: |
+  **<span>[${as_of_date}]</span>**
+  
+  Welcome to PTLA's **Maine TANF Benefits Estimator** where you can estimate monthly TANF benefits for Maine households. 
+
+  We have tried to make this tool easy to understand - but eligibilty for TANF can be complicated. We cannot guarantee the result you get from this calculator will be the amount of TANF benefits you receive, if you are eligible. But it can help you understand how those calculations work, and get an idea of what TANF benefits you may be eligible for. 
+  
+  <strong>Insert link to TANF Client ed/other additional info here.</strong>
+  
+  <span class="navy">**Household Composition**</span> 
+fields:
+  - Adults in the household: HHAdults
+    datatype: integer
+  - note: |
+      The adults who can receive TANF on behalf of a child(ren) must be living in the same home and caring for the child(ren); they can include biological, legal, adoptive, and step-parents, siblings and half-siblings, grandparents, aunts, uncles, and first cousins. Do not count any adults who get SSI. It is ok if the number of adults in the household is '0' here - children in the household may still get child-only TANF benefits.
+  - Children in the household: HHChildren
+    datatype: integer
+  - note: |
+      Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma. Do not count any children who get SSI.  
+  - note: |
+      <span class="navy">**Income**</span>    
+      
+      <span class="title_color">Enter Gross __*Unearned*__ Income</span><br>
+      Unemployment Comp, SSI, Social Security, Pensions, Veterans Benefits, Child Support, DTA cash assistance.
+  - Income frequency : Uneared_Income
+    input type: radio
+    choices:
+      - Monthly: Mthly
+      - Biweekly: biWkly   
+      - Weekly: Wkly  
+      - None: None
+  - Monthly amount: MUI
+    datatype: currency   
+    show if:
+      variable: Uneared_Income
+      is: Mthly
+  - Biweekly amount: biWUI
+    datatype: currency
+    step: 1
+    show if:
+      variable: Uneared_Income
+      is: biWkly
+  - Weekly amount: WUI
+    datatype: currency
+    step: 1
+    show if:
+      variable: Uneared_Income
+      is: Wkly
+  - note: |  
+      <span class="title_color">Enter Gross __*Earned*__ Income</span><br>
+      Wages or salaries. For self-employment, including independent contractors, input gross income after business expenses.
+  - Income frequency : Earned_Income
+    input type: radio
+    choices:
+      - Monthly: Mthly
+      - Biweekly: biWkly   
+      - Weekly: Wkly 
+      - None: None 
+  - Monthly amount: MEI
+    datatype: currency
+    show if:
+      variable: Earned_Income
+      is: Mthly
+  - Biweekly amount: biWEI
+    datatype: currency  
+    show if:
+      variable: Earned_Income
+      is: biWkly
+  - Weekly amount: WEI
+    datatype: currency  
+    show if:
+      variable: Earned_Income
+      is: Wkly   
+  - html: <span class="title_color">Enter Monthly Shelter Costs</span>
+  - Monthly shelter/housing cost: SC
+    datatype: currency        
+
+continue button label: See Results
+---
+id: downloadChoice
+comment: |
+  Display the major results on the screen, and let the user choose what to download.  
+question: |
+subquestion: |
+  % if FinalResult <= 0:
+  ####You do not seem to be eligible for TANF benefits.
+  % else:
+  ####You may be eligible for TANF benefits.
+  ####If you apply and are approved, your benefit may be <span style="color: red">${ currency(FinalResult) }</span> per month.<br>
+  % endif
+fields:
+  - Learn more or print results: print_options
+    datatype: checkboxes
+    choices:
+      - Summary of TANF Benefits and how to apply - with Calculation Details: Details 
+continue button label: Finish
