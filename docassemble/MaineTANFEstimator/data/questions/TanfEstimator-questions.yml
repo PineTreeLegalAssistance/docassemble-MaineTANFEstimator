@@ -113,7 +113,7 @@ comment: |
   Display the major results on the screen, and let the user choose what to download.  
 question: |
 subquestion: |
-  % if FinalResult <= 0:
+  % if SONResult == "FAILED":
   ####You do not seem to be eligible for TANF benefits.
   % else:
   ####You may be eligible for TANF benefits.
