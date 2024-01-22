@@ -45,7 +45,28 @@ code: |
     SONResult = "FAILED"
   # Step 3. Calculating Basic TANF Grant
   #3.1 
-  BasicGrant = round(SON - TI, 0)
+  if ChildOnlyHousehold == True:
+    if HHTotal <= 8:
+      if round(SON - TI, 0) >= arrMaxTANFGrantChildOnly[HHTotal-1]:
+        BasicGrant = arrMaxTANFGrantChildOnly[HHTotal-1]
+      else:
+        BasicGrant = round(SON - TI, 0)
+    else:
+      if round(SON - TI, 0) >= arrMaxTANFGrantChildOnly[7]+((HHTotal-8)*arrMaxTANFGrantChildOnly[8]):
+        BasicGrant = arrMaxTANFGrantChildOnly[7]+((HHTotal-8)*arrMaxTANFGrantChildOnly[8])
+      else:
+        BasicGrant = round(SON - TI, 0)
+  else:
+    if HHTotal <= 8:
+      if round(SON - TI, 0) >= arrMaxTANFGrantAdultInc[HHTotal-1]:
+        BasicGrant = arrMaxTANFGrantAdultInc[HHTotal-1]
+      else: 
+        BasicGrant = round(SON - TI, 0)
+    else:
+      if round(SON - TI, 0) >= arrMaxTANFGrantAdultInc[7]+((HHTotal-8)*arrMaxTANFGrantAdultInc[8]):
+        BasicGrant = arrMaxTANFGrantAdultInc[7]+((HHTotal-8)*arrMaxTANFGrantAdultInc[8])
+      else:
+        BasicGrant = round(SON - TI, 0)    
   # Step 4. Special Need Housing Allowance
   #4.1 Calculating SNHA Income
   SNHAI = round(BasicGrant + TI + CSR, 0)
