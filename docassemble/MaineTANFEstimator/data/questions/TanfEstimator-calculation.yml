@@ -44,7 +44,7 @@ code: |
   else:
     SONResult = "FAILED"
   # Step 3. Calculating Basic TANF Grant
-  #3.1 
+  #3.1 If the 'Basic Grant' amount found by subtracting total income from the Standard of Need is higher than the program maximum benefit amount, it must be set to the maximum amount - which varies by household size and whether or not there are children in the household. 
   if ChildOnlyHousehold == True:
     if HHTotal <= 8:
       if round(SON - TI, 0) >= arrMaxTANFGrantChildOnly[HHTotal-1]:
