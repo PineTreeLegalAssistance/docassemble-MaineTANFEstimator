@@ -13,16 +13,16 @@ metadata:
 ---
 include: 
   - docassemble.AssemblyLine:assembly_line.yml
-  - ptla_custom_organization.yml
+  - custom_ptla_theme_ngb.yml
 ---
 features:
   question back button: True
   navigation back button: False
-  # theme file downloaded from: bootstrap theme: https://bootswatch.com/cerulean/bootstrap.min.css
-  #css: 
-    #- colors.css
+   #theme file downloaded from: bootstrap theme: https://bootswatch.com/cerulean/bootstrap.min.css
+  css: 
+    - ptlatheme.css
     #- bootstrap.min.css
-  #hide navbar: True 
+  hide navbar: False 
   debug: False
 ---
 modules:
