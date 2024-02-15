@@ -20,7 +20,7 @@ code: |
   else:
     CMEI = 0
   #2.4 Calculating Total Income
-  TI = round(CMEI + GMUI, 0)
+  TI = round(CMEI + GMUI - CSP, 0)
   HHTotal = HHAdults + HHChildren
   #2.5 Household Size and Standard of Need
   #This may be a mess for a while - will need to test

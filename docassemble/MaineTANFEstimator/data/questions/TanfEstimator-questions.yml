@@ -104,7 +104,9 @@ fields:
       is: Wkly   
   - html: <span class="title_color">Enter Monthly Shelter Costs</span>
   - Monthly shelter/housing cost: SC
-    datatype: currency        
+    datatype: currency
+  - Monthly child support paid: CSP
+    datatype: currency
 
 continue button label: See Results
 ---
