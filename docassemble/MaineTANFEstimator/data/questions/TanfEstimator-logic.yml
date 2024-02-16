@@ -37,6 +37,7 @@ mandatory: true
 code: |
   #Question screen
   HHAdults
+  SC
   
   #Print option screen
   print_options

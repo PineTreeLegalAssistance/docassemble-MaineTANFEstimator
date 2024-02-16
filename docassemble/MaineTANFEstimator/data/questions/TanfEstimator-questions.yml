@@ -27,7 +27,7 @@ code: |
   #HomeownerDed = 0
 
 ---
-id: Questions
+id: HHQuestions
 question: |
 subquestion: |
   **<span>[${as_of_date}]</span>**
@@ -47,7 +47,15 @@ fields:
   - Children in the household: HHChildren
     datatype: integer
   - note: |
-      Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma. Do not count any children who get SSI.  
+      Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma. Do not count any children who get SSI.
+
+continue button label: Next 
+---
+id: IncomeQuestions
+question: |
+subquestion: |
+  **<span>[${as_of_date}]</span>**
+fields:
   - note: |
       <span class="navy">**Income**</span>    
       
