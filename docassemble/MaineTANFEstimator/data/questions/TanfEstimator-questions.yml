@@ -27,7 +27,7 @@ code: |
   #HomeownerDed = 0
 
 ---
-id: HHQuestions
+id: Introduction
 question: |
 subquestion: |
   **<span>[${as_of_date}]</span>**
@@ -37,17 +37,53 @@ subquestion: |
   We have tried to make this tool easy to understand - but eligibilty for TANF can be complicated. We cannot guarantee the result you get from this calculator will be the amount of TANF benefits you receive, if you are eligible. But it can help you understand how those calculations work, and get an idea of what TANF benefits you may be eligible for. 
   
   <strong>Insert link to TANF Client ed/other additional info here.</strong>
+continue button label: Get started
+continue button field: TANF_intro
+---  
+id: ImmigrationAsk
+question: |
+subquestion: |
+  **<span>[${as_of_date}]</span>**
+  
+fields:
+  - Would you like to see information about immigration status and TANF benefits in Maine?: ImmigrationInfo
+    datatype: yesnoradio
+continue button label: Next    
+---
+id: ImmigrationInfo
+question: |
+subquestion: |
+  **<span>[${as_of_date}]</span>**
   
   <span class="navy">**Household Composition**</span> 
-fields:
+  
+  Many immigrants in Maine are eligible for TANF benefits. You can use this information to figure out how many adults and children you should count in your household size on the next screen.
+
+continue button label: Next
+continue button field: display_immigration_info
+---
+id: HHQuestions
+question: |
+subquestion: |
+  **<span>[${as_of_date}]</span>**
+  
+  <span class="navy">**Household Composition**</span> 
+fields:    
   - Adults in the household: HHAdults
     datatype: integer
   - note: |
-      The adults who can receive TANF on behalf of a child(ren) must be living in the same home and caring for the child(ren); they can include biological, legal, adoptive, and step-parents, siblings and half-siblings, grandparents, aunts, uncles, and first cousins. Do not count any adults who get SSI. It is ok if the number of adults in the household is '0' here - children in the household may still get child-only TANF benefits.
+      <ul>
+      <li>The adults who can receive TANF on behalf of a child(ren) must be living in the same home and caring for the child(ren); they can include biological, legal, adoptive, and step-parents, siblings and half-siblings, grandparents, aunts, uncles, and first cousins.</li> 
+      <li>Do not count any adults who get SSI.</li> 
+      <li>It is ok if the number of adults in the household is '0' here - children in the household may still get child-only TANF benefits.</li>
+      </ul>
   - Children in the household: HHChildren
     datatype: integer
   - note: |
-      Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma. Do not count any children who get SSI.
+      <ul>
+      <li>Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma.</li> 
+      <li>Do not count any children who get SSI.</li>
+      </ul>
 
 continue button label: Next 
 ---
