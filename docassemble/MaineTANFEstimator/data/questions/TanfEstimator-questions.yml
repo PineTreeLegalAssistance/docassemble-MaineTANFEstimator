@@ -45,10 +45,8 @@ question: |
 subquestion: |
   **<span>[${as_of_date}]</span>**
   
-fields:
-  - Would you like to see information about immigration status and TANF benefits in Maine?: ImmigrationInfo
-    datatype: yesnoradio
-continue button label: Next    
+  Would you like to see information about immigration status and TANF benefits in Maine?
+yesno: ImmigrationInfo   
 ---
 id: ImmigrationInfo
 question: |
