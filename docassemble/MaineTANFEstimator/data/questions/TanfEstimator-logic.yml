@@ -58,7 +58,7 @@ event: textOnly
 question: |
   You have successfully completed the calculation. 
 subquestion: |  
-  You can user the "Back" button to revise your input, or restart a new interview. 
+  You can use the "Back" button to revise your input, or restart a new interview. 
 buttons: 
   - Exit: exit
   - Restart: restart
