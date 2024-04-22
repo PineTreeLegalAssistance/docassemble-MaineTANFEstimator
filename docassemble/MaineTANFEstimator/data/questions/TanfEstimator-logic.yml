@@ -37,11 +37,15 @@ mandatory: true
 code: |
   #Question screens
   TANF_intro
+  set_progress(25)
   ImmigrationInfo
   if ImmigrationInfo == True:
     display_immigration_info
+  set_progress(50)  
   HHAdults
+  set_progress(75)
   SC
+  set_progress(100)
   
   #Print option screen
   print_options
