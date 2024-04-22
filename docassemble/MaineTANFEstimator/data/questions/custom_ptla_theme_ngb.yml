@@ -22,14 +22,14 @@ objects:
 # Metadata is used in the tab and navigation bar
 metadata:
   title: |
-    PTLA Forms Project
+    Maine TANF Benefits Estimator
   short title: |
     Complete Forms Online   
   exit url: |
     https://www.ptla.org
 ---
 code: |
-  AL_ORGANIZATION_TITLE = "Maine Court Forms Project"
+  AL_ORGANIZATION_TITLE = "Pine Tree Legal Assistance Forms Project"
 ---  
 code: |
   AL_ORGANIZATION_HOMEPAGE = "https://apps.ptla.org"
