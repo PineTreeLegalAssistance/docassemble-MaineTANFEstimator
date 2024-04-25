@@ -43,6 +43,8 @@ code: |
     display_immigration_info
   set_progress(50)  
   HHAdults
+  Uneared_Income
+  CSP
   set_progress(75)
   SC
   set_progress(100)

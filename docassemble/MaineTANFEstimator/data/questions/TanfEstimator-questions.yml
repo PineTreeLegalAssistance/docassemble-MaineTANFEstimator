@@ -43,34 +43,38 @@ continue button field: TANF_intro
 id: ImmigrationAsk
 question: |
 subquestion: |
-  **<span>[${as_of_date}]</span>**
-  
   Would you like to see information about immigration status and TANF benefits in Maine?
 yesno: ImmigrationInfo   
 ---
 id: ImmigrationInfo
 question: |
+  Immigrant Eligibility for TANF in Maine
 subquestion: |
-  **<span>[${as_of_date}]</span>**
-  
-  <span class="navy">**Household Composition**</span> 
-  
   Many immigrants in Maine are eligible for TANF benefits. You can use this information to figure out how many adults and children you should count in your household size on the next screen.
-  <strong>Insert information about immigrant TANF eligibility here.</strong>
+  
+  Federal law restricts which immigrants can receive TANF.  Many immigrants in Maine are eligible for TANF.  Include everyone in your family that has one of these statuses: 
+  <strong>[list of qualified alien statuses]</strong>
+
+  <strong>Is your family seeking asylum in the U.S.?</strong>  
+  If yes, you may apply for TANF if: 
+  <ol>
+  <li>a caretaker in the family is elderly or disabled;</li>
+  <li>anyone in the family has experienced domestic violence;</li>
+  <li>you have submitted an application for asylum and are waiting to apply for your work permit; or</li>
+  <li>you have received your work permit but haven’t found a job yet.</li>
+  </ol>
+
+  
 
 continue button label: Next
 continue button field: display_immigration_info
 ---
 id: HHQuestions
 question: |
-subquestion: |
-  **<span>[${as_of_date}]</span>**
-  
-  <span class="navy">**Household Composition**</span> 
+  About your Household 
 fields:    
-  - Adults in the household: HHAdults
-    datatype: integer
   - note: |
+      <strong>Which adults should be included in the TANF Household?</strong>
       <ul>
       <li>The adults who can get TANF on behalf of a child(ren) must be living in the same home and caring for the child(ren); they can include: 
       <ul>
@@ -82,26 +86,38 @@ fields:
       <li>Do not count any adults who get SSI.</li> 
       <li>It is ok if the number of adults in the household is '0' here - children in the household may still get child-only TANF benefits.</li>
       </ul>
-  - Children in the household: HHChildren
+  - Number of **adults** in the household?: HHAdults
     datatype: integer
   - note: |
+      <strong>Which children should be included in the TANF Household?</strong>
       <ul>
-      <li>Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma.</li> 
+      <li>Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma.</li>
+      <li>Children must live in the household at least 50% of the time</li>
       <li>Do not count any children who get SSI.</li>
       </ul>
+  - Number of **children** in the household?: HHChildren
+    datatype: integer
 
 continue button label: Next 
 ---
 id: IncomeQuestions
 question: |
-subquestion: |
-  **<span>[${as_of_date}]</span>**
+  Household Income
 fields:
   - note: |
-      <span class="navy">**Income**</span>    
+      <strong> What should I count as income?</strong>
+      
+      Do not count: 
+      <ul>
+      <li>loans (including student loans),</li> 
+      <li>child support that is collected/retained by DHHS,</li> 
+      <li>gifts (if they're under $150 every 3 months),</li> 
+      <li>HEAP benefits, or</li> 
+      <li>tax refunds.</li>
+      </ul>
       
       <span class="title_color">Enter Gross __*Unearned*__ Income</span><br>
-      Unemployment Comp, SSI, Social Security, Pensions, Veterans Benefits, Child Support, DTA cash assistance.
+      (Income like: Unemployment Comp, SSI, Social Security, Pensions, Veterans Benefits, Child Support, or General Assistance.)
   - Income frequency : Uneared_Income
     input type: radio
     choices:
@@ -128,7 +144,7 @@ fields:
       is: Wkly
   - note: |  
       <span class="title_color">Enter Gross __*Earned*__ Income</span><br>
-      Wages or salaries. For self-employment, including independent contractors, input gross income after business expenses.
+      Wages or salaries. If anyone is self-employed, enter the net (after deductions and expenses) self-employment income average for the last 12 months in the 'monthly' field here.
   - Income frequency : Earned_Income
     input type: radio
     choices:
@@ -151,11 +167,44 @@ fields:
     show if:
       variable: Earned_Income
       is: Wkly   
-  - html: <span class="title_color">Enter Monthly Shelter Costs</span>
-  - Monthly shelter/housing cost: SC
-    datatype: currency
+
+continue button label: Next  
+---
+id: Child Support Paid
+question: |
+  Child support paid outside the household
+fields:
+  - html: <strong>Enter Child Support Paid</strong>
   - Monthly child support paid: CSP
     datatype: currency
+  - note: |
+      If an adult in the household is responsible for paying child support to someone NOT included in the TANF household, enter the monthly amount here.
+
+continue button label: Next 
+---      
+id: Shelter Costs
+question: |
+  Shelter Costs
+fields:  
+  - html: <strong>Enter Monthly Shelter Costs</strong>
+  - Monthly shelter/housing cost: SC
+    datatype: currency
+  - note: |
+      <strong>What counts as a 'shelter cost?'</strong>
+      
+      For TANF, shelter costs include: 
+      <ul>
+      <li>rent,</li> 
+      <li>mortgage,</li> 
+      <li>homeowner insurance, and</li> 
+      <li>property taxes.</li>  
+      </ul>
+      
+      DHHS will ask for a copy of the lease, mortgage, or some other verification.  
+      
+      If you share living expenses with a roommate or family member who is not on the TANF grant, DHHS may not count your housing costs unless your name is on the lease or mortgage.  
+      
+      <a href="https://maineequaljustice.org/contact-us/">Contact Maine Equal Justice if you have questions</a>.
 
 continue button label: See Results
 ---
