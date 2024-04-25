@@ -70,18 +70,20 @@ code: |
   # Step 4. Special Need Housing Allowance
   #4.1 Calculating SNHA Income
   SNHAI = round(BasicGrant + TI + CSR, 0)
-  SNHAAmount = SC - SNHAI
   #4.2 Comparing SNHA Income and Shelter Costs
-  if SC >= (SNHAI * .5):
+  if SC > (SNHAI * .5):
     SNHAResult = "PASSED"
   else:
     SNHAResult = "FAILED"
   # Step 5. Calculating SNHA Amount and Final Results
+  SNHAAmount = (SC - SNHAI)
   if SNHAResult == "PASSED":
-      if SNHAAmount >= 300:
-        FinalResult = round(BasicGrant + 300, 0)
-      else:
-        FinalResult = round(BasicGrant + (SC - SNHAI), 0)
+    if SNHAAmount >= 300:
+      FinalResult = round(BasicGrant + 300, 0)
+    elif SNHAAmount < 300 and SNHAAmount >= 0:
+      FinalResult = round(BasicGrant + (SNHAAmount), 0)
+    else:
+      FinalResult = round(BasicGrant)
   else:
     FinalResult = round(BasicGrant)
   # Step 6. Results & Estimate
