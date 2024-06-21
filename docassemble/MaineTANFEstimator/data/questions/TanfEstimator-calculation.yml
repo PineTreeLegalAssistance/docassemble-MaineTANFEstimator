@@ -78,12 +78,7 @@ code: |
   # Step 5. Calculating SNHA Amount and Final Results
   SNHAAmount = (SC - SNHAI)
   if SNHAResult == "PASSED":
-    if SNHAAmount >= 300:
-      FinalResult = round(BasicGrant + 300, 0)
-    elif SNHAAmount < 300 and SNHAAmount >= 0:
-      FinalResult = round(BasicGrant + (SNHAAmount), 0)
-    else:
-      FinalResult = round(BasicGrant)
+    FinalResult = round((SON + 300) - TI)
   else:
     FinalResult = round(BasicGrant)
   # Step 6. Results & Estimate
