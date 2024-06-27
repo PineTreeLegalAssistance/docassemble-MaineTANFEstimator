@@ -183,7 +183,7 @@ question: |
   About your Household 
 fields:    
   - note: |
-      <strong>Which adults should be included in the TANF Household?</strong>
+      <h4>Which adults should be included in the TANF Household?</h4>
       <ul>
       <li>The adults who can get TANF on behalf of a child(ren) must be living in the same home and caring for the child(ren); they can include: 
       <ul>
@@ -198,7 +198,7 @@ fields:
   - Number of **adults** in the household?: HHAdults
     datatype: integer
   - note: |
-      <strong>Which children should be included in the TANF Household?</strong>
+      <h4>Which children should be included in the TANF Household?</h4>
       <ul>
       <li>Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma.</li>
       <li>Children must live in the household at least 50% of the time</li>
@@ -214,19 +214,21 @@ question: |
   Household Income
 fields:
   - note: |
-      <strong> What should I count as income?</strong>
+      <h4> What should I count as income?</h4>
       
       Do not count: 
       <ul>
-      <li>loans (including student loans),</li> 
-      <li>child support that is collected/retained by DHHS,</li> 
+      <li>SSI received by a parent or child in the household,</li>
+      <li>wages of full-time high school students,</li>
+      <li>loans (including student loans),</li>  
       <li>gifts (if they're under $150 every 3 months),</li> 
-      <li>HEAP benefits, or</li> 
-      <li>tax refunds.</li>
+      <li>HEAP (heating assistance) benefits,</li> 
+      <li>tax refunds,</li>
+      <li>child support – if you qualify for TANF, DHHS will likely collect and keep most of your child support.</li>
       </ul>
       
-      <span class="title_color">Enter Gross __*Unearned*__ Income</span><br>
-      (Income like: Unemployment Comp, SSI, Social Security, Pensions, Veterans Benefits, Child Support, or General Assistance.)
+      <h4>Enter Gross *Unearned* Income</h4>
+      (Examples: Unemployment Insurance Benefits, Social Security Disability Insurance (SSDI) or Retirement, Pensions, Veterans Benefits.)
   - Income frequency : Uneared_Income
     input type: radio
     choices:
@@ -252,7 +254,7 @@ fields:
       variable: Uneared_Income
       is: Wkly
   - note: |  
-      <span class="title_color">Enter Gross __*Earned*__ Income</span><br>
+      <h4>Enter Gross *Earned* Income</h4>
       Wages or salaries. If anyone is self-employed, enter the net (after deductions and expenses) self-employment income average for the last 12 months in the 'monthly' field here.
   - Income frequency : Earned_Income
     input type: radio
@@ -283,11 +285,14 @@ id: Child Support Paid
 question: |
   Child support paid outside the household
 fields:
-  - html: <strong>Enter Child Support Paid</strong>
+  - html: <h4>Enter Child Support Paid</h4>
+  - note: |
+      <ul>
+      <li>If an adult in the household is responsible for paying child support to someone NOT included in the TANF household, enter the monthly amount here.</li> 
+      <li>Only count child support that is paid under a court order. Voluntary payments or buying clothes, food, or other needs for children can’t be deducted here.</li>
+      </ul>
   - Monthly child support paid: CSP
     datatype: currency
-  - note: |
-      If an adult in the household is responsible for paying child support to someone NOT included in the TANF household, enter the monthly amount here.
 
 continue button label: Next 
 ---      
@@ -295,11 +300,8 @@ id: Shelter Costs
 question: |
   Shelter Costs
 fields:  
-  - html: <strong>Enter Monthly Shelter Costs</strong>
-  - Monthly shelter/housing cost: SC
-    datatype: currency
   - note: |
-      <strong>What counts as a 'shelter cost?'</strong>
+      <h4>What counts as a 'shelter cost?'</h4>
       
       For TANF, shelter costs include: 
       <ul>
@@ -313,7 +315,11 @@ fields:
       
       If you share living expenses with a roommate or family member who is not on the TANF grant, DHHS may not count your housing costs unless your name is on the lease or mortgage.  
       
-      <a href="https://maineequaljustice.org/contact-us/">Contact Maine Equal Justice if you have questions</a>.
+      <a href="https://maineequaljustice.org/contact-us/">Contact Maine Equal Justice if you have questions</a>.  
+  - html: <h4>Enter Monthly Shelter Costs</h4>
+  - Monthly shelter/housing cost: SC
+    datatype: currency
+
 
 continue button label: See Results
 ---
@@ -326,7 +332,7 @@ subquestion: |
   ####You do not seem to be eligible for TANF benefits.
   % else:
   ####You may be eligible for TANF benefits.
-  ####If you apply and are approved, your benefit may be <span style="color: red">${ currency(FinalResult) }</span> per month.<br>
+  ####If you apply and are approved, your benefit may be <span style="color: green">${ currency(FinalResult) }</span> per month.<br>
   % endif
 fields:
   - Learn more or print results: print_options
