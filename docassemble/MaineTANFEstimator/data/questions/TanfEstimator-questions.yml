@@ -101,8 +101,20 @@ subquestion: |
 
   We have tried to make this tool easy to understand - but eligibilty for TANF can be complicated. We cannot guarantee the result from this calculator will be the amount of TANF benefits you get, if you are eligible. But it can help you understand how those calculations work, and get an idea of what TANF benefits you may be eligible for. 
   
-  <strong>Insert link to TANF Client ed/other additional info here.</strong>
+  TANF eligibility involves a calculation of your: 
+  <ul>
+  <li>Household size</li>
+  <li>Income</li>
+  <li>Certain expenses like shelter</li>
+  </ul>
+
+  This calculator asks questions about these factors to estimate your monthly TANF benefits.  
+  <br />
+  It should take less than 5 minutes to complete.
+  <br />
   
+  <strong>Insert link to TANF Client ed/other additional info here.</strong>
+  <br />
   ${ display_template(PTLA_terms_of_use, scrollable=True, collapse=False) }
 
 fields:
@@ -135,9 +147,23 @@ question: |
 subquestion: |
   Many immigrants in Maine are eligible for TANF benefits. You can use this information to figure out how many adults and children you should count in your household size on the next screen.
   
-  Federal law restricts which immigrants can receive TANF.  Many immigrants in Maine are eligible for TANF.  Include everyone in your family that has one of these statuses: 
-  <strong>[list of qualified alien statuses]</strong>
-
+  Federal law restricts which immigrants can receive TANF.  Many immigrants in Maine are eligible for TANF.  <strong>Include</strong> everyone in your family who has one of these statuses: 
+  <ul>
+  <li>Refugee</li>
+  <li>Asylee</li>
+  <li>Certain Lawful Permanent Residents (Green Card Holders)</li>
+  <li>Individual Subject to Trafficking (T or U Visa)</li>
+  <li>Cuban and Haitian Entrant</li>
+  <li>North American Indigenous People Born in Canada</li>
+  <li>Deportee Whose Deportation is Withheld</li>
+  <li>Iraqi Special Immigrant</li>
+  <li>Afghan Special Immigrant</li>
+  <li>Certain Amerasian Immigrants</li>
+  <li>Certain Hmong and Highland Laotians</li>
+  <li>Certain Individuals Paroled into the U.S. for 1+ year</li>
+  <li>Certain Individuals Granted Conditional Entrance</li>
+  </ul>
+  <br />
   <strong>Is your family seeking asylum in the U.S.?</strong>  
   If yes, you may apply for TANF if: 
   <ol>
