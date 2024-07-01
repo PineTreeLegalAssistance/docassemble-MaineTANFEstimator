@@ -77,10 +77,10 @@ comment: |
 ---
 ########################### GitHub Feedback ##############################
 ---
-code: |
+#code: |
   # This points the feedback link to the feedback.yml file in this package.
   # E.g., docassemble.ALMyState
-  feedback_form = f"{ user_info().current_package }:feedback.yml"
+#  feedback_form = f"{ user_info().current_package }:feedback.yml"
 ---
 ########################### Intro screen #################################
 ---
