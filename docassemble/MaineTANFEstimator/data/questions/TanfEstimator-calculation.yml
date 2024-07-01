@@ -15,7 +15,7 @@ code: |
   GMEI = round(MEI + WEIC + biWEIC, 0)
   #May need to add some child support related math here - passing over for now
   #2.3 Calculating Countable Earned Income    
-  if GMEI > 0:
+  if GMEI > 108:
     CMEI = round((GMEI - 108) * .5)
   else:
     CMEI = 0
