@@ -76,7 +76,6 @@ code: |
   else:
     SNHAResult = "FAILED"
   # Step 5. Calculating SNHA Amount and Final Results
-  SNHAAmount = (SC - SNHAI)
   if SNHAResult == "PASSED":
     if round((SON + 300) - TI) >= round((BasicGrant) + 300):
       FinalResult = round((BasicGrant) + 300)
