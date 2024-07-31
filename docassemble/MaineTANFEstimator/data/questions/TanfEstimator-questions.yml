@@ -113,7 +113,7 @@ subquestion: |
   It should take less than 5 minutes to complete.
   <br />
   
-  <strong>Insert link to TANF Client ed/other additional info here.</strong>
+  <strong><a href="https://www.ptla.org/Maine-TANF-Guide">Learn more about TANF in our article: Guide to TANF in Maine</a>.</strong>
   <br />
   ${ display_template(PTLA_terms_of_use, scrollable=True, collapse=False) }
 
