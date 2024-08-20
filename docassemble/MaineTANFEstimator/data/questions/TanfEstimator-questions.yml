@@ -99,7 +99,7 @@ subquestion: |
   
   Welcome to PTLA's **Maine TANF Benefits Estimator** where you can estimate monthly TANF benefits for Maine households thinking about applying for TANF. 
 
-  We have tried to make this tool easy to understand - but eligibilty for TANF can be complicated. We cannot guarantee the result from this calculator will be the amount of TANF benefits you get, if you are eligible. But it can help you understand how those calculations work, and get an idea of what TANF benefits you may be eligible for. 
+  We have tried to make this tool easy to understand - but eligibilty for TANF can be complicated. We cannot guarantee the result from this calculator will be the amount of TANF benefits you get, if you are eligible. But it can help you understand how those calculations work, and get an idea of what TANF benefits you may be eligible for.   Do you have more questions or need general information about TANF in Maine? <a href="https://www.ptla.org/Maine-TANF-Guide">Learn more about TANF in our article: <strong>Guide to TANF in Maine</a>.</strong>
   
   TANF eligibility involves a calculation of your: 
   <ul>
@@ -108,12 +108,7 @@ subquestion: |
   <li>Certain expenses like shelter</li>
   </ul>
 
-  This calculator asks questions about these factors to estimate your monthly TANF benefits.  
-  <br />
-  It should take less than 5 minutes to complete.
-  <br />
-  
-  <strong><a href="https://www.ptla.org/Maine-TANF-Guide">Learn more about TANF in our article: Guide to TANF in Maine</a>.</strong>
+  This calculator asks questions about these factors to estimate your monthly TANF benefits. It should take less than 5 minutes to complete.
   <br />
   ${ display_template(PTLA_terms_of_use, scrollable=True, collapse=False) }
 
@@ -172,6 +167,8 @@ subquestion: |
   <li>you have submitted an application for asylum and are waiting to apply for your work permit; or</li>
   <li>you have received your work permit but haven’t found a job yet.</li>
   </ol>
+  
+  <strong>Note</strong>: If you’re an asylum seeker and have been getting TANF, your TANF eligibility will change once you get your work permit and start working.  <a href="https://maineequaljustice.org/contact-us/">Contact Maine Equal Justice</a> for questions about this. 
 
   
 
