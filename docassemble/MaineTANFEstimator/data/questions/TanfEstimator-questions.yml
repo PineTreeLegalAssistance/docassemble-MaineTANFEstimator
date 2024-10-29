@@ -109,6 +109,10 @@ subquestion: |
   </ul>
 
   This calculator asks questions about these factors to estimate your monthly TANF benefits. It should take less than 5 minutes to complete.
+  
+  Disclaimer: We tried to make this tool applicable to most families and situations.  We didn’t include every part of the TANF eligibility formula to keep it short and easy to use.  TANF eligibility involves other deductions and disregards that we didn’t include here.  Those include deductions for child support, alimony, and childcare costs.  Those also include the Step Disregard, which helps alleviate the “cliff effect” when your income from work increases.  If you have questions about those and how they affect your TANF eligibility, you can contact <a href="https://www.maine.gov/dhhs/ofi/programs-services/tanf">DHHS</a>, <a href="https://ptla.org">PTLA</a>, or <a href="https://maineequaljustice.org/contact-us/">Maine Equal Justice</a>. 
+
+  
   <br />
   ${ display_template(PTLA_terms_of_use, scrollable=True, collapse=False) }
 
@@ -140,7 +144,7 @@ id: ImmigrationInfo
 question: |
   Immigrant Eligibility for TANF in Maine
 subquestion: |
-  Many immigrants in Maine are eligible for TANF benefits. You can use this information to figure out how many adults and children you should count in your household size on the next screen.
+  Many immigrants in Maine are eligible for TANF benefits. You can use this information to figure out how many adults and children you should count in your household size on the next screen. It’s possible that some family members will have an eligible immigration status and some family members will not - that’s ok, a “mixed status” family could be eligible for TANF if they meet all the financial requirements. 
   
   Federal law restricts which immigrants can receive TANF.  Many immigrants in Maine are eligible for TANF.  <strong>Include</strong> everyone in your family who has one of these statuses: 
   <ul>
@@ -189,7 +193,8 @@ fields:
       <li>grandparents,</li> 
       <li>aunts, uncles, and first cousins.</li>
       </ul>
-      <li>Do not count any adults who get SSI.</li> 
+      <li>Do not count any adults who get SSI.</li>
+      <li>Do not count any adults who are ineligible because of their immigration status.</li>
       <li>It is ok if the number of adults in the household is '0' here - children in the household may still get child-only TANF benefits.</li>
       </ul>
   - Number of **adults** in the household?: HHAdults
@@ -200,6 +205,7 @@ fields:
       <li>Children must be under the age of 18 or be ages 18-20 and enrolled as a full-time high school student working towards a high school diploma.</li>
       <li>Children must live in the household at least 50% of the time</li>
       <li>Do not count any children who get SSI.</li>
+      <li>Do not count any children who are ineligible because of their immigration status.</li>
       </ul>
   - Number of **children** in the household?: HHChildren
     datatype: integer
